@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import bharat from "../assets/img/image.png";
 
 export default function Hero() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <section
       id="hero"
@@ -11,15 +22,10 @@ export default function Hero() {
         flex items-center
       "
     >
-      <div
-        className="
-          max-w-7xl mx-auto px-6
-          grid md:grid-cols-2 gap-12
-          items-center
-        "
-      >
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
         {/* ================= LEFT CONTENT ================= */}
-        <div>
+        <div data-aos="fade-right">
           <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
             I'm <span className="text-orange-500">Bharat Kumar</span>
           </h1>
@@ -34,7 +40,6 @@ export default function Hero() {
             scalable code.
           </p>
 
-          {/* ✅ RESUME BUTTON (NO IMPORT ISSUE) */}
           <a
             href="/public/bharat RESUME (1).pdf"
             target="_blank"
@@ -45,46 +50,55 @@ export default function Hero() {
               hover:shadow-[0_0_30px_#F97316]
               transition duration-300
             "
+            data-aos="fade-up"
           >
             View Resume →
           </a>
         </div>
 
-        {/* ================= RIGHT IMAGE ================= */}
-        <div className="flex justify-center md:justify-end">
-          <div className="relative">
+        {/* ================= RIGHT IMAGE (MATCHING DESIGN) ================= */}
+        <div className="flex justify-center md:justify-end" data-aos="zoom-in">
+          <div className="relative flex flex-col items-center">
 
-            {/* SOFT BACK GLOW */}
+            {/* ✅ AVAILABLE FOR JOB BADGE */}
             <div
               className="
-                absolute top-6 left-6
-                w-72 h-72 rounded-full
-                bg-gradient-to-tr from-orange-500 to-pink-500
-                blur-3xl opacity-30
+                mb-6 px-6 py-2 rounded-full
+                bg-white/10 backdrop-blur-xl
+                border border-white/20
+                text-sm text-gray-200
+                flex items-center gap-2
               "
-            ></div>
-
-            {/* IMAGE RING */}
-            <div
-              className="
-                relative w-72 h-72 rounded-full
-                bg-gradient-to-tr from-[#1A103D] to-[#0B0F19]
-                p-1 shadow-2xl
-              "
+              data-aos="fade-down"
             >
-              <img
-                src={bharat}
-                alt="Bharat Kumar"
-                className="
-                  w-full h-full rounded-full
-                  object-cover
-                  border-4 border-[#0B0F19]
-                "
-              />
+              <span className="w-3 h-3 bg-green-400 rounded-full"></span>
+              AVAILABLE FOR JOB
             </div>
 
+            {/* IMAGE CONTAINER */}
+            <div className="relative w-72 h-72">
+
+              {/* 🌈 RADIAL BACK GLOW */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-500 via-pink-500 to-purple-600 blur-3xl opacity-40"></div>
+
+              {/* 🌈 GRADIENT RING */}
+              <div className="relative w-full h-full rounded-full p-[4px] bg-gradient-to-tr from-orange-500 via-pink-500 to-purple-600">
+                <div className="w-full h-full rounded-full bg-[#0B0F19] p-2">
+
+                  {/* IMAGE */}
+                  <img
+                    src={bharat}
+                    alt="Bharat Kumar"
+                    className="w-full h-full rounded-full object-cover"
+                  />
+
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import {
   FaHtml5,
   FaCss3Alt,
@@ -10,6 +13,16 @@ import {
 import { SiTailwindcss, SiMongodb, SiExpress, SiVercel } from "react-icons/si";
 
 export default function Skill() {
+
+  // 🔥 AOS INIT
+  useEffect(() => {
+    AOS.init({
+      duration: 900,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   const skills = [
     { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
     { name: "CSS3", icon: <FaCss3Alt className="text-blue-500" /> },
@@ -34,16 +47,21 @@ export default function Skill() {
     >
       <div className="max-w-7xl mx-auto px-6 w-full">
 
-        {/* TITLE */}
-        <h2 className="text-4xl font-bold text-white text-center mb-16">
+        {/* ================= TITLE ================= */}
+        <h2
+          className="text-4xl font-bold text-white text-center mb-16"
+          data-aos="fade-down"
+        >
           My <span className="text-orange-500">Skills</span>
         </h2>
 
-        {/* SKILLS GRID */}
+        {/* ================= SKILLS GRID ================= */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
           {skills.map((skill, index) => (
             <div
               key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
               className="
                 group
                 bg-white/10 backdrop-blur-xl
@@ -56,7 +74,7 @@ export default function Skill() {
                 hover:shadow-[0_0_25px_rgba(249,115,22,0.5)]
               "
             >
-              {/* ICON (smaller & clean) */}
+              {/* ICON */}
               <div className="text-4xl group-hover:scale-110 transition">
                 {skill.icon}
               </div>
