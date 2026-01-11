@@ -35,9 +35,9 @@ export default function Header() {
 
         {/* ================= LOGO ================= */}
         <div className="flex items-center gap-2" data-aos="fade-right">
-          <span className="text-3xl">👋</span>
+          <span className="text-3xl">✅</span>
           <h1 className="text-2xl font-bold text-orange-500">
-            Hey!
+           BHARAT KUMAR
           </h1>
         </div>
 

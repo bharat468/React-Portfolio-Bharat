@@ -10,9 +10,11 @@ import calculator from "../assets/img/calculetor.jpg";
 import todo from "../assets/img/todo App.jpg";
 import API from "../assets/img/API.jpg";
 import Asian from "../assets/img/The Asian Club.jpeg";
+import newecommerce from "../assets/img/full stack ecommerce.jpeg";
+import form from "../assets/img/form.jpeg";
+import game from "../assets/img/dice game.jpeg";
 
 export default function Project() {
-
   // ================= AOS INIT =================
   useEffect(() => {
     AOS.init({
@@ -24,21 +26,39 @@ export default function Project() {
 
   // ================= PROJECT DATA =================
   const projects = [
+    // ===== FEATURED CURRENT MERN PROJECT =====
+    {
+      title: "Full Stack E-Commerce (In Progress)",
+      image: newecommerce,
+      desc: "Full Stack MERN e-commerce with user auth, cart, products, admin panel & payments.",
+      tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind", "Render"],
+      live: "https://backend-1-unc9.onrender.com/",
+      code: "https://github.com/bharat468",
+    },
+
     // ===== HTML / CSS / JS =====
     {
-      title: "The asian club",
+      title: "The Asian Club",
       image: Asian,
-      desc: "The Asian Club is a fully responsive modern website built to represent a club/community website.",
+      desc: "Fully responsive club/community website made using pure HTML, CSS and JavaScript.",
       tech: ["HTML", "CSS", "JavaScript"],
       live: "https://the-asian-club-green.vercel.app/",
       code: "https://github.com/bharat468",
     },
     {
-      title: "API Fetch App",
+      title: "API Movie Search App",
       image: API,
-      desc: "Fetch data from API and display dynamically.",
+      desc: "Fetch and search movies using an external API and display dynamically.",
       tech: ["HTML", "CSS", "JavaScript", "API"],
       live: "https://movie-two-hazel.vercel.app/",
+      code: "https://github.com/bharat468",
+    },
+    {
+      title: "Dice Rolling Game",
+      image: game,
+      desc: "Simple dice rolling game using DOM manipulation and random logic.",
+      tech: ["HTML", "CSS", "JavaScript"],
+      live: "https://dace-game.vercel.app/",
       code: "https://github.com/bharat468",
     },
 
@@ -46,35 +66,45 @@ export default function Project() {
     {
       title: "Pokemon World",
       image: pokemon,
-      desc: "React app that fetches Pokémon data from API with clean UI.",
+      desc: "Pokemon explorer using React + live API with search, filter & pagination.",
       tech: ["React", "API", "CSS"],
       live: "https://api-blush-chi.vercel.app/",
       code: "https://github.com/bharat468",
     },
     {
+      title: "Todo App",
+      image: todo,
+      desc: "CRUD todo app built with React and LocalStorage persistence.",
+      tech: ["React", "CSS", "LocalStorage"],
+      live: "https://todo-zeta-flame-12.vercel.app/",
+      code: "https://github.com/bharat468",
+    },
+    {
       title: "Calculator App",
       image: calculator,
-      desc: "Simple calculator built using JavaScript.",
+      desc: "Basic calculator made in HTML, CSS and JavaScript.",
       tech: ["HTML", "CSS", "JavaScript"],
       live: "https://calculetor-three.vercel.app/",
       code: "https://github.com/bharat468",
     },
+
+    // ===== ADVANCED UI / FIREBASE =====
     {
-      title: "Todo App",
-      image: todo,
-      desc: "Todo app with CRUD functionality and local storage.",
-      tech: ["HTML", "CSS", "React JS"],
-      live: "https://todo-zeta-flame-12.vercel.app/",
+      title: "E-Commerce UI Demo",
+      image: ecommerce,
+      desc: "Frontend e-commerce UI with Firebase backend and product management.",
+      tech: ["React", "Firebase", "Tailwind"],
+      live: "https://react-ecommerce-zeta-inky.vercel.app/",
       code: "https://github.com/bharat468",
     },
 
-    // ===== ADVANCED =====
+    // ===== CMS PANEL =====
     {
-      title: "E-Commerce Website",
-      image: ecommerce,
-      desc: "Full stack e-commerce app with auth, cart and products.",
-      tech: ["React JS", "Firebase", "Tailwind"],
-      live: "https://react-ecommerce-zeta-inky.vercel.app/",
+      title: "Form Dashboard CMS",
+      image: form,
+      desc: "React dashboard to collect and manage submitted form entries.",
+      tech: ["React", "Tailwind"],
+      live: "https://fsl-form-seven.vercel.app/",
       code: "https://github.com/bharat468",
     },
   ];
@@ -85,8 +115,6 @@ export default function Project() {
       className="min-h-screen py-24 bg-gradient-to-br from-[#0E0B1F] via-[#120C2E] to-[#0B0F19]"
     >
       <div className="max-w-7xl mx-auto px-6">
-
-        {/* ================= TITLE ================= */}
         <h2
           className="text-4xl font-bold text-white text-center mb-16"
           data-aos="fade-down"
@@ -113,7 +141,7 @@ export default function Project() {
                 hover:shadow-[0_0_40px_rgba(249,115,22,0.6)]
               "
             >
-              {/* ================= IMAGE ================= */}
+              {/* IMAGE */}
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
@@ -124,8 +152,6 @@ export default function Project() {
                     group-hover:scale-110
                   "
                 />
-
-                {/* HOVER OVERLAY */}
                 <div
                   className="
                     absolute inset-0
@@ -142,17 +168,16 @@ export default function Project() {
                 </div>
               </div>
 
-              {/* ================= CONTENT ================= */}
+              {/* CONTENT */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-3">
                   {project.title}
                 </h3>
-
                 <p className="text-sm leading-relaxed mb-4">
                   {project.desc}
                 </p>
 
-                {/* TECH STACK */}
+                {/* TECH */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((item, i) => (
                     <span
@@ -167,7 +192,7 @@ export default function Project() {
                   ))}
                 </div>
 
-                {/* BUTTONS */}
+                {/* LINKS */}
                 <div className="flex gap-4">
                   <a
                     href={project.live}
@@ -200,11 +225,11 @@ export default function Project() {
                     <FaGithub /> Code
                   </a>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
