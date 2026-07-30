@@ -37,10 +37,9 @@ export default function Header() {
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-3 sm:pt-5 px-3 sm:px-6 pointer-events-none"
     >
-      <div 
-        className={`max-w-[1400px] mx-auto px-6 py-4 pointer-events-auto transition-all duration-500 rounded-full flex items-center justify-between ${
-          scrolled ? "bg-[rgba(15,17,21,0.8)] backdrop-blur-[25px] border border-white/5 shadow-2xl" : "bg-transparent border-transparent"
-        }`}
+      <div
+        className={`max-w-[1400px] mx-auto px-6 py-4 pointer-events-auto transition-all duration-500 rounded-full flex items-center justify-between ${scrolled ? "bg-[rgba(15,17,21,0.8)] backdrop-blur-[25px] border border-white/5 shadow-2xl" : "bg-transparent border-transparent"
+          }`}
       >
         {/* BRAND LOGO */}
         <button
@@ -83,7 +82,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden mt-3 max-w-[1400px] mx-auto glass-card pointer-events-auto p-4 sm:p-6"
+            className="lg:hidden mt-3 max-w-[1400px] mx-auto bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] rounded-2xl pointer-events-auto p-4 sm:p-6"
           >
             <div className="flex flex-col gap-4 text-sm font-medium text-[var(--ink)]">
               {navLinks.map((link) => (

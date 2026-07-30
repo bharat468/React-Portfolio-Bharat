@@ -4,7 +4,7 @@ import { Download, ArrowRight, Mail, CheckCircle2 } from "lucide-react";
 
 export default function Hero() {
   const techStack = [
-    "React", "Next.js", "MongoDB", "AWS", "Docker", "Redis"
+    "React", "Node.js", "MongoDB", "PostgreSQL", "React Native", "Redis"
   ];
 
   return (
@@ -44,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg sm:text-xl lg:text-2xl text-[var(--ink)] max-w-2xl font-normal leading-[1.6] mb-4"
           >
-            Building Modern Experiences with React, Next.js & Cloud Infrastructure.
+            MERN Stack Developer with hands-on experience building scalable, high-performance web applications. Skilled in designing robust backend architectures and responsive, user-friendly interfaces.
           </motion.p>
 
           <motion.div
