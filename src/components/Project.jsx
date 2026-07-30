@@ -98,60 +98,62 @@ export default function Project() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${isEven ? "" : "lg:flex-row-reverse"}`}
+                className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-12 xl:gap-16 ${isEven ? "" : "lg:flex-row-reverse"}`}
               >
 
-                {/* Image Showcase - Cinematic Full Width */}
-                <div className="w-full lg:w-[55%] group relative">
-                  {/* Decorative Glow */}
-                  <div className="absolute inset-0 bg-[var(--primary)]/20 blur-[60px] rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
+                {/* Image Showcase - Sleek Device Bezel */}
+                <div className="w-full lg:w-[60%] group relative">
+                  {/* Subtle Background Glow */}
+                  <div className="absolute inset-0 bg-white/5 blur-[50px] rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-700 -z-10"></div>
 
-                  <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden glass-card !p-3 sm:!p-4 shadow-[0_30px_60px_rgba(0,0,0,0.4)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.6)] group-hover:border-[var(--primary-ring)] transition-all duration-700 group-hover:-translate-y-2">
-                    <div className="w-full h-full rounded-[1.2rem] sm:rounded-[1.8rem] overflow-hidden relative">
-                      <img
-                        src={project.img}
-                        alt={project.title}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                      />
-                      {/* Subtle Vignette Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                    </div>
+                  <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#111111] shadow-[0_30px_60px_rgba(0,0,0,0.5)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.7)] group-hover:-translate-y-2 transition-all duration-700">
+                    <img
+                      src={project.img}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* Subtle Overlay */}
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
                   </div>
                 </div>
 
-                {/* Content - Floating Minimalist Text */}
-                <div className="w-full lg:w-[45%] flex flex-col items-start text-left">
+                {/* Content - Matching the Screenshot */}
+                <div className="w-full lg:w-[40%] flex flex-col items-start text-left pl-0 lg:pl-2 xl:pl-4">
 
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-[var(--primary-soft)] border border-[var(--primary-ring)]/30 flex items-center justify-center text-[var(--primary)] shadow-[0_0_10px_var(--primary-ring)]">
-                      {project.featured ? <Layers3 size={18} /> : <Code2 size={18} />}
+                  {/* Top Badge */}
+                  <div className="inline-flex items-center gap-3 mb-4 lg:mb-6 px-1.5 py-1.5 pr-5 rounded-full bg-[#1A1A1A] border border-white/5">
+                    <div className="w-8 h-8 rounded-full bg-[#2A2A2A] flex items-center justify-center text-white/70">
+                      <Code2 size={14} />
                     </div>
-                    <span className="text-xs sm:text-sm font-bold text-[var(--sub)] uppercase tracking-widest">{project.category}</span>
+                    <span className="text-[11px] sm:text-xs font-bold text-white/70 uppercase tracking-widest">{project.category}</span>
                   </div>
 
-                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--ink)] mb-6 font-['Sora'] leading-[1.2]">
+                  {/* Title */}
+                  <h3 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-black text-white mb-4 lg:mb-6 font-['Sora'] leading-[1.15]">
                     {project.title}
                   </h3>
 
-                  {/* FULL UNTRUNCATED DESCRIPTION */}
-                  <p className="text-[var(--sub)] text-lg leading-[1.8] tracking-[0.015em] mb-10 font-medium">
+                  {/* Description */}
+                  <p className="text-white/60 text-base lg:text-lg leading-[1.7] mb-8 font-medium">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-10">
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-3 mb-10">
                     {project.stack.map((tech, idx) => (
-                      <span key={idx} className="badge badge-primary !px-4 !py-2 !text-xs !font-bold !bg-[var(--bg)] !border-[var(--border)] tracking-wider">
+                      <span key={idx} className="px-5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-[#111] border border-white/10 text-white/70 tracking-wide hover:border-white/30 transition-colors">
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 w-full">
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary sm:flex-1 w-full sm:w-auto flex items-center justify-center gap-2 !py-4 shadow-lg group">
+                  {/* Buttons */}
+                  <div className="flex items-center gap-4 w-full">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E5C49F] text-black rounded-full font-bold text-base hover:bg-[#d3b28d] transition-colors shadow-lg">
                       View Live Project <ExternalLink size={18} strokeWidth={2.5} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </a>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary !px-5 !py-4 sm:flex-none w-full sm:w-auto justify-center group hover:bg-[var(--primary-soft)] hover:border-[var(--primary-ring)] transition-all">
-                      <FaGithub size={22} className="group-hover:scale-110 transition-transform" />
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full flex flex-none items-center justify-center bg-[#1A1A1A] border border-white/10 hover:bg-[#2A2A2A] transition-colors text-white shadow-lg">
+                      <FaGithub size={22} />
                     </a>
                   </div>
 
