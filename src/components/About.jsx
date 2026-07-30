@@ -4,7 +4,7 @@ import heroImg from "../assets/img/image.png";
 
 export default function About() {
   const stats = [
-    { label: "Years Experience", value: "2+" },
+    { label: "Years Experience", value: "1+" },
     { label: "Projects Built", value: "25+" },
     { label: "Happy Clients", value: "12+" },
   ];
