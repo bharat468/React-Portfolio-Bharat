@@ -4,7 +4,7 @@ import { Download, ArrowRight, Mail, CheckCircle2 } from "lucide-react";
 
 export default function Hero() {
   const techStack = [
-    "React", "Node.js", "MongoDB", "PostgreSQL", "React Native", "Redis"
+    "React", "Node.js", "MongoDB", "PostgreSQL", "React Native", "AWS Basic"
   ];
 
   return (
@@ -12,11 +12,11 @@ export default function Hero() {
 
       {/* LUXURY BLURRED BACKGROUND GRADIENTS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div 
+        <div
           className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 animate-pulse"
           style={{ background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)', animationDuration: '8s' }}
         ></div>
-        <div 
+        <div
           className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[150px] opacity-10 animate-pulse"
           style={{ background: 'radial-gradient(circle, var(--secondary) 0%, transparent 70%)', animationDuration: '12s', animationDelay: '2s' }}
         ></div>
@@ -27,7 +27,7 @@ export default function Hero() {
 
         {/* ================= LEFT: MASSIVE TYPOGRAPHY ================= */}
         <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg sm:text-xl lg:text-2xl text-[var(--ink)] max-w-2xl font-normal leading-[1.6] mb-4"
           >
-            MERN Stack Developer with hands-on experience building scalable, high-performance web applications. Skilled in designing robust backend architectures and responsive, user-friendly interfaces.
+            Full Stack Developer with hands-on experience building scalable, high-performance web applications. Skilled in designing robust backend architectures and responsive, user-friendly interfaces.
           </motion.p>
 
           <motion.div
@@ -87,7 +87,7 @@ export default function Hero() {
           className="lg:col-span-5 relative w-full max-w-sm mx-auto lg:ml-auto perspective-1000 z-10"
         >
           <div className="glass-card !p-8 sm:!p-10 transform transition-transform duration-700 hover:rotate-x-1 hover:-rotate-y-2 hover:scale-[1.02] shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
-            
+
             <div className="border-b border-white/10 pb-6 mb-6">
               <h3 className="text-2xl sm:text-3xl font-bold text-[var(--ink)] font-['Sora'] mb-1">
                 Bharat Pareek
@@ -107,7 +107,7 @@ export default function Hero() {
             </ul>
 
           </div>
-          
+
           {/* Decorative floating blur behind the card */}
           <div className="absolute -inset-10 bg-[var(--primary)]/5 blur-3xl -z-10 rounded-full"></div>
         </motion.div>
