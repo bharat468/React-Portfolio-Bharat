@@ -1,101 +1,107 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
+import { motion } from "framer-motion";
+import heroImg from "../assets/img/image.png";
 
 export default function About() {
+  const stats = [
+    { label: "Years Experience", value: "2+" },
+    { label: "Projects Built", value: "25+" },
+    { label: "Happy Clients", value: "12+" },
+  ];
 
-  // 🔥 AOS INIT
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: "ease-out-cubic",
-    });
-  }, []);
+  const tech = ["React", "React Native", "Node JS", "Express", "AWS", "Docker"];
 
   return (
-    <section
-      id="about"
-      className="
-        min-h-screen py-24
-        bg-gradient-to-br from-[#0E0B1F] via-[#120C2E] to-[#0B0F19]
-        flex items-center
-      "
-    >
-      <div className="max-w-7xl mx-auto px-6 w-full">
-
-        {/* ================= SECTION TITLE ================= */}
-        <h2
-          className="text-4xl font-bold text-white text-center mb-14"
-          data-aos="fade-down"
+    <section id="about" className="py-24 md:py-36 relative overflow-hidden bg-transparent">
+      <div className="section-container relative z-10">
+        
+        {/* Massive Section Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 lg:mb-24"
         >
-          About <span className="text-orange-500">Me</span>
-        </h2>
+          <h2 className="text-[3rem] sm:text-6xl md:text-7xl font-black text-[var(--ink)] tracking-tight leading-[1.1]">
+            About Me.
+          </h2>
+        </motion.div>
 
-        {/* ================= GLASS CARD ================= */}
-        <div
-          className="
-            relative
-            max-w-4xl mx-auto
-            bg-white/10 backdrop-blur-xl
-            border border-white/20
-            rounded-2xl p-8 md:p-10
-            text-gray-300
-            shadow-2xl
-          "
-          data-aos="zoom-in"
-        >
-          {/* ✨ SOFT GLOW */}
-          <div className="absolute -top-6 -right-6 w-40 h-40 bg-orange-500/30 blur-3xl rounded-full"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
 
-          {/* ABOUT TEXT */}
-          <p
-            className="leading-relaxed text-lg relative z-10"
-            data-aos="fade-up"
+          {/* LEFT: LARGE IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full relative"
           >
-            I am a passionate{" "}
-            <span className="text-orange-400 font-semibold">
-              Full Stack Developer
-            </span>{" "}
-            with experience in building modern web applications using
-            React, JavaScript, and backend technologies. I enjoy
-            creating clean UI, scalable code, and meaningful user
-            experiences.
-          </p>
+            <div className="glass-card !p-4 sm:!p-6 !rounded-[2rem] sm:!rounded-[2.5rem] relative z-10 group">
+              <div className="w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[1.5rem] overflow-hidden relative">
+                <img 
+                  src={heroImg} 
+                  alt="Bharat Pareek" 
+                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent opacity-80"></div>
+              </div>
+            </div>
+            
+            {/* Background Glow */}
+            <div className="absolute -inset-4 bg-[var(--primary)]/10 blur-[100px] -z-10 rounded-full animate-pulse"></div>
+          </motion.div>
 
-          {/* ================= STATS ================= */}
-          <div className="mt-12 grid sm:grid-cols-3 gap-6 text-center relative z-10">
-
-            <div
-              className="p-6 bg-black/40 rounded-xl hover:scale-105 transition"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <h3 className="text-3xl font-bold text-orange-500">1+</h3>
-              <p className="text-sm text-gray-400 mt-1">Years Learning</p>
+          {/* RIGHT: CONTENT & STATS */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col space-y-10"
+          >
+            <div className="glass-card !p-8 sm:!p-10">
+              <p className="text-lg sm:text-xl text-[var(--sub)] font-medium leading-[1.8]">
+                I am a passionate <strong className="text-[var(--primary)] font-bold">Full Stack Developer</strong> focused on crafting premium digital experiences. I architect scalable backend systems and seamlessly integrate them with high-performance, pixel-perfect frontend interfaces.
+              </p>
+              <br />
+              <p className="text-lg sm:text-xl text-[var(--sub)] font-medium leading-[1.8]">
+                My obsession is building products that are not just functional, but inherently beautiful and responsive. I treat code like art.
+              </p>
             </div>
 
-            <div
-              className="p-6 bg-black/40 rounded-xl hover:scale-105 transition"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <h3 className="text-3xl font-bold text-orange-500">10+</h3>
-              <p className="text-sm text-gray-400 mt-1">Projects</p>
+            {/* Premium Stat Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {stats.map((stat, i) => (
+                <div key={i} className="glass-card !p-6 flex flex-col justify-center items-center text-center group">
+                  <div className="text-4xl sm:text-5xl font-bold text-[var(--ink)] font-number mb-2 group-hover:text-[var(--primary)] transition-colors duration-300">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-semibold text-[var(--sub)] uppercase tracking-wider">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div
-              className="p-6 bg-black/40 rounded-xl hover:scale-105 transition"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <h3 className="text-2xl font-bold text-orange-500">React</h3>
-              <p className="text-sm text-gray-400 mt-1">Primary Skill</p>
+            {/* Tech Stack Pills inside a Card */}
+            <div className="glass-card !p-8">
+              <h3 className="text-lg font-bold text-[var(--ink)] mb-6 uppercase tracking-widest text-center sm:text-left">
+                Core Technologies
+              </h3>
+              <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+                {tech.map((t, i) => (
+                  <div key={i} className="px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-[var(--ink)] font-medium text-sm sm:text-base hover:bg-[var(--primary)] hover:text-[#0F1115] transition-colors duration-300 cursor-default">
+                    {t}
+                  </div>
+                ))}
+              </div>
             </div>
 
-          </div>
+          </motion.div>
+
         </div>
-
       </div>
     </section>
   );

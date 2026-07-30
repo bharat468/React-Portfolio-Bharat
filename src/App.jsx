@@ -1,14 +1,15 @@
-import Header from "./components/Header"
-import Hero from "./components/Hero"
-import About from "./components/About"
-import Skill from "./components/Skill"
-import Project from "./components/Project"
-import Experience from "./components/Experience"
-import Contact from "./components/Contact"
+import React from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skill from "./components/Skill";
+import Project from "./components/Project";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
 
-export default function App() {
+function App() {
   return (
-    <div>
+    <div className="w-full min-h-screen">
       <Header />
       <Hero />
       <About />
@@ -16,7 +17,8 @@ export default function App() {
       <Project />
       <Experience />
       <Contact />
-
     </div>
-  )
+  );
 }
+
+export default App;

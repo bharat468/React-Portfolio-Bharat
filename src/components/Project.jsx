@@ -1,235 +1,167 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import React from "react";
+import { motion } from "framer-motion";
+import { ExternalLink, Sparkles, Layers3, Code2 } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 // PROJECT IMAGES
-import pokemon from "../assets/img/pokemon.jpeg";
-import ecommerce from "../assets/img/e-commerce.jpg";
-import calculator from "../assets/img/calculetor.jpg";
-import todo from "../assets/img/todo App.jpg";
-import API from "../assets/img/API.jpg";
-import Asian from "../assets/img/The Asian Club.jpeg";
-import newecommerce from "../assets/img/full stack ecommerce.jpeg";
-import form from "../assets/img/form.jpeg";
-import game from "../assets/img/dice game.jpeg";
+import sosalImg from "../assets/img/sosal.png";
+import shopHubImg from "../assets/img/Shophub.png";
+import radhaImg from "../assets/img/radha.png";
+import chronelixImg from "../assets/img/chronelix.png";
 
 export default function Project() {
-  // ================= AOS INIT =================
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: "ease-out-cubic",
-    });
-  }, []);
-
-  // ================= PROJECT DATA =================
   const projects = [
-    // ===== FEATURED CURRENT MERN PROJECT =====
     {
-      title: "Full Stack E-Commerce (In Progress)",
-      image: newecommerce,
-      desc: "Full Stack MERN e-commerce with user auth, cart, products, admin panel & payments.",
-      tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind", "Render"],
-      live: "https://backend-1-unc9.onrender.com/",
-      code: "https://github.com/bharat468",
-    },
-
-    // ===== HTML / CSS / JS =====
-    {
-      title: "The Asian Club",
-      image: Asian,
-      desc: "Fully responsive club/community website made using pure HTML, CSS and JavaScript.",
-      tech: ["HTML", "CSS", "JavaScript"],
-      live: "https://the-asian-club-green.vercel.app/",
-      code: "https://github.com/bharat468",
+      id: 1,
+      title: "Sosal — Social Media Web App",
+      category: "Full Stack Architecture",
+      description: "Built a full-stack social media platform with real-time interactions, posts, and user profiles.",
+      img: sosalImg,
+      stack: ["React", "Redux", "Socket.io", "Node.js", "Express", "MongoDB"],
+      live: "https://sosal-frontend.onrender.com/login",
+      github: "https://github.com/bharat468?tab=repositories",
+      featured: true
     },
     {
-      title: "API Movie Search App",
-      image: API,
-      desc: "Fetch and search movies using an external API and display dynamically.",
-      tech: ["HTML", "CSS", "JavaScript", "API"],
-      live: "https://movie-two-hazel.vercel.app/",
-      code: "https://github.com/bharat468",
+      id: 2,
+      title: "ShopHub E-Commerce",
+      category: "REST API Architecture",
+      description: "Developed secure, scalable REST APIs powering authentication, product management, and real-time data flow for an e-commerce platform.",
+      img: shopHubImg,
+      stack: ["React.js", "Node.js", "Express", "MongoDB"],
+      live: "https://backend-1-unc9.onrender.com",
+      github: "https://github.com/bharat468?tab=repositories",
+      featured: false
     },
     {
-      title: "Dice Rolling Game",
-      image: game,
-      desc: "Simple dice rolling game using DOM manipulation and random logic.",
-      tech: ["HTML", "CSS", "JavaScript"],
-      live: "https://dace-game.vercel.app/",
-      code: "https://github.com/bharat468",
-    },
-
-    // ===== REACT =====
-    {
-      title: "Pokemon World",
-      image: pokemon,
-      desc: "Pokemon explorer using React + live API with search, filter & pagination.",
-      tech: ["React", "API", "CSS"],
-      live: "https://api-blush-chi.vercel.app/",
-      code: "https://github.com/bharat468",
+      id: 3,
+      title: "Radha Enterprises",
+      category: "Frontend Architecture",
+      description: "Developed a complete frontend web application using React.js. Implemented modern, highly responsive user interfaces with Shadcn UI and Tailwind CSS, while managing complex application state with Redux.",
+      img: radhaImg,
+      stack: ["React.js", "Redux", "Tailwind CSS", "Shadcn UI", "Typescript"],
+      live: "https://radha-enterprises-rouge.vercel.app/",
+      github: "https://github.com/bharat468?tab=repositories",
+      featured: true
     },
     {
-      title: "Todo App",
-      image: todo,
-      desc: "CRUD todo app built with React and LocalStorage persistence.",
-      tech: ["React", "CSS", "LocalStorage"],
-      live: "https://todo-zeta-flame-12.vercel.app/",
-      code: "https://github.com/bharat468",
-    },
-    {
-      title: "Calculator App",
-      image: calculator,
-      desc: "Basic calculator made in HTML, CSS and JavaScript.",
-      tech: ["HTML", "CSS", "JavaScript"],
-      live: "https://calculetor-three.vercel.app/",
-      code: "https://github.com/bharat468",
-    },
-
-    // ===== ADVANCED UI / FIREBASE =====
-    {
-      title: "E-Commerce UI Demo",
-      image: ecommerce,
-      desc: "Frontend e-commerce UI with Firebase backend and product management.",
-      tech: ["React", "Firebase", "Tailwind"],
-      live: "https://react-ecommerce-zeta-inky.vercel.app/",
-      code: "https://github.com/bharat468",
-    },
-
-    // ===== CMS PANEL =====
-    {
-      title: "Form Dashboard CMS",
-      image: form,
-      desc: "React dashboard to collect and manage submitted form entries.",
-      tech: ["React", "Tailwind"],
-      live: "https://fsl-form-seven.vercel.app/",
-      code: "https://github.com/bharat468",
-    },
+      id: 4,
+      title: "Chronelix",
+      category: "Frontend Application",
+      description: "Built the Chronelix frontend web application using React.js. Designed a highly interactive and modern user interface focusing on robust component structure and seamless user experience.",
+      img: chronelixImg,
+      stack: ["React.js", "Tailwind CSS", "JavaScript"],
+      live: "https://chronelix.vercel.app/",
+      github: "https://github.com/bharat468?tab=repositories",
+      featured: false
+    }
   ];
 
   return (
-    <section
-      id="project"
-      className="min-h-screen py-24 bg-gradient-to-br from-[#0E0B1F] via-[#120C2E] to-[#0B0F19]"
-    >
-      <div className="max-w-7xl mx-auto px-6">
-        <h2
-          className="text-4xl font-bold text-white text-center mb-16"
-          data-aos="fade-down"
+    <section id="project" className="py-24 md:py-36 relative overflow-hidden bg-transparent">
+
+      {/* AURORA GLOWS */}
+      <div className="absolute top-1/2 -left-32 w-[800px] h-[800px] bg-[var(--primary)]/10 blur-[200px] rounded-full pointer-events-none -z-10 animate-pulse" style={{ animationDuration: '10s' }}></div>
+      <div className="absolute bottom-0 -right-32 w-[800px] h-[800px] bg-[var(--accent)]/10 blur-[200px] rounded-full pointer-events-none -z-10 animate-pulse" style={{ animationDuration: '15s', animationDelay: '2s' }}></div>
+
+      <div className="section-container relative z-10">
+
+        {/* SECTION HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 lg:mb-24 pb-10 border-b-2 border-[var(--border)] gap-8"
         >
-          My <span className="text-orange-500">Projects</span>
-        </h2>
-
-        {/* ================= PROJECT GRID ================= */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-              className="
-                group relative
-                bg-white/10 backdrop-blur-xl
-                border border-white/20
-                rounded-2xl overflow-hidden
-                text-gray-300
-                transition-all duration-500 ease-out
-                hover:-translate-y-3
-                hover:border-orange-500
-                hover:shadow-[0_0_40px_rgba(249,115,22,0.6)]
-              "
-            >
-              {/* IMAGE */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="
-                    w-full h-44 object-cover
-                    transition-transform duration-700 ease-out
-                    group-hover:scale-110
-                  "
-                />
-                <div
-                  className="
-                    absolute inset-0
-                    bg-black/60
-                    flex items-center justify-center
-                    opacity-0
-                    group-hover:opacity-100
-                    transition duration-500
-                  "
-                >
-                  <span className="text-orange-400 font-semibold text-lg">
-                    View Project
-                  </span>
-                </div>
-              </div>
-
-              {/* CONTENT */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-sm leading-relaxed mb-4">
-                  {project.desc}
-                </p>
-
-                {/* TECH */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((item, i) => (
-                    <span
-                      key={i}
-                      className="
-                        text-xs px-3 py-1 rounded-full
-                        bg-black/40 border border-white/10
-                      "
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
-                {/* LINKS */}
-                <div className="flex gap-4">
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      flex items-center gap-2
-                      text-sm px-4 py-2 rounded-lg
-                      bg-orange-500 text-black font-semibold
-                      hover:shadow-[0_0_20px_#F97316]
-                      transition
-                    "
-                  >
-                    <FaExternalLinkAlt /> Live
-                  </a>
-
-                  <a
-                    href={project.code}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      flex items-center gap-2
-                      text-sm px-4 py-2 rounded-lg
-                      border border-white/20
-                      hover:border-orange-500
-                      hover:text-orange-400
-                      transition
-                    "
-                  >
-                    <FaGithub /> Code
-                  </a>
-                </div>
-
-              </div>
+          <div>
+            <div className="badge badge-primary mb-4 !px-5 !py-2 !text-xs font-extrabold shadow-[0_0_15px_var(--primary-ring)]">
+              <Sparkles size={14} /> 03 / Engineering Portfolio
             </div>
-          ))}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[var(--ink)] tracking-normal font-['Sora'] leading-[1.2]">
+              Selected <span className="text-gradient">Architectures</span>
+            </h2>
+          </div>
+          <p className="text-[var(--sub)] max-w-md text-base md:text-lg font-normal leading-[1.85] tracking-[0.015em]">
+            A deep dive into high-complexity systems I have engineered, focusing on real-time data, scalability, and premium user experiences.
+          </p>
+        </motion.div>
+
+        {/* PROJECTS CINEMATIC SHOWCASE */}
+        <div className="flex flex-col gap-24 sm:gap-32 mt-10">
+          {projects.map((project, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${isEven ? "" : "lg:flex-row-reverse"}`}
+              >
+
+                {/* Image Showcase - Cinematic Full Width */}
+                <div className="w-full lg:w-[55%] group relative">
+                  {/* Decorative Glow */}
+                  <div className="absolute inset-0 bg-[var(--primary)]/20 blur-[60px] rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
+
+                  <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden glass-card !p-3 sm:!p-4 shadow-[0_30px_60px_rgba(0,0,0,0.4)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.6)] group-hover:border-[var(--primary-ring)] transition-all duration-700 group-hover:-translate-y-2">
+                    <div className="w-full h-full rounded-[1.2rem] sm:rounded-[1.8rem] overflow-hidden relative">
+                      <img
+                        src={project.img}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      />
+                      {/* Subtle Vignette Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content - Floating Minimalist Text */}
+                <div className="w-full lg:w-[45%] flex flex-col items-start text-left">
+
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-full bg-[var(--primary-soft)] border border-[var(--primary-ring)]/30 flex items-center justify-center text-[var(--primary)] shadow-[0_0_10px_var(--primary-ring)]">
+                      {project.featured ? <Layers3 size={18} /> : <Code2 size={18} />}
+                    </div>
+                    <span className="text-xs sm:text-sm font-bold text-[var(--sub)] uppercase tracking-widest">{project.category}</span>
+                  </div>
+
+                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--ink)] mb-6 font-['Sora'] leading-[1.2]">
+                    {project.title}
+                  </h3>
+
+                  {/* FULL UNTRUNCATED DESCRIPTION */}
+                  <p className="text-[var(--sub)] text-lg leading-[1.8] tracking-[0.015em] mb-10 font-medium">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-10">
+                    {project.stack.map((tech, idx) => (
+                      <span key={idx} className="badge badge-primary !px-4 !py-2 !text-xs !font-bold !bg-[var(--bg)] !border-[var(--border)] tracking-wider">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-4 w-full">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary sm:flex-1 w-full sm:w-auto flex items-center justify-center gap-2 !py-4 shadow-lg group">
+                      View Live Project <ExternalLink size={18} strokeWidth={2.5} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </a>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary !px-5 !py-4 sm:flex-none w-full sm:w-auto justify-center group hover:bg-[var(--primary-soft)] hover:border-[var(--primary-ring)] transition-all">
+                      <FaGithub size={22} className="group-hover:scale-110 transition-transform" />
+                    </a>
+                  </div>
+
+                </div>
+
+              </motion.div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

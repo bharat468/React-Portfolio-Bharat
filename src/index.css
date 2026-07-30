@@ -1,1 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Keep Tailwind utilities available */
 @import "tailwindcss";
+
+/* Design tokens (Luxury Coffee Theme) */
+:root{
+  --bg: #0F1115;
+  --surface: #171A21;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.06);
+  --ink: #F8F5F2;
+  --sub: #B8B8B8;
+  --primary: #EACEAA;
+  --primary-ring: rgba(234, 206, 170, 0.35);
+  --primary-soft: rgba(234, 206, 170, 0.12);
+  --secondary: #D39858;
+  --accent: #85431E;
+  --dark-accent: #34150F;
+  --soft-brown: #5C4033;
+  --faint: #71717A;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --shadow-sm: 0 6px 18px rgba(0,0,0,0.4);
+  --shadow-md: 0 18px 40px rgba(0,0,0,0.6);
+  --transition: 300ms cubic-bezier(.16,1,.3,1);
+}
+
+/* Reset & base */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin:0;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+/* Layout container used across sections */
+.section-container{max-width:1400px;margin-left:auto;margin-right:auto;padding:1.25rem}
+@media(min-width:640px){.section-container{padding:2rem}}
+@media(min-width:1024px){.section-container{padding:140px}}
+
+section{padding:3.5rem 0}
+@media(min-width:640px){section{padding:4.5rem 0}}
+
+/* Typography */
+h1,h2,h3,h4{font-family:'Sora',system-ui,sans-serif;margin:0 0 0.6rem}
+/* stronger hero scale for a modern portfolio */
+h1{font-size:2.5rem;line-height:1.1;letter-spacing:-0.02em;font-weight:800}
+@media(min-width:640px){h1{font-size:4rem}}
+@media(min-width:1024px){h1{font-size:5.5rem}}
+h2{font-size:1.5rem;font-weight:700}
+@media(min-width:640px){h2{font-size:2.5rem}}
+p{color:var(--sub);margin:0 0 1rem;font-size:1rem;line-height:1.8}
+.font-number{font-family:'Space Grotesk', monospace;}
+
+/* utility lead paragraph for hero */
+.lead{font-size:1.125rem;color:var(--sub);max-width:58ch}
+
+/* Glass card primitive */
+.glass-card{
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+  padding: 1.5rem;
+  transition: transform 700ms cubic-bezier(0.16,1,0.3,1), filter 700ms;
+}
+
+.glass-card:hover{
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Header / Nav */
+.glass-nav{display:flex;align-items:center;justify-content:space-between;padding:0.5rem 1rem;border-radius:9999px;background:linear-gradient(180deg, rgba(20,20,24,0.85), rgba(20,20,24,0.6));backdrop-filter:blur(16px) saturate(150%);box-shadow:0 20px 50px rgba(0,0,0,0.5);border:1px solid var(--border)}
+.glass-nav .brand{display:flex;align-items:center;gap:0.6rem;font-weight:800}
+.glass-nav nav{gap:0.5rem}
+.glass-nav nav button{background:transparent;border:none;padding:0.6rem 0.9rem;border-radius:999px;font-weight:700;cursor:pointer;color:var(--sub);transition:all var(--transition)}
+.glass-nav nav button:hover{color:var(--primary);background:var(--primary-soft)}
+.glass-nav .cta{background:linear-gradient(90deg,var(--primary),#00BFFF);color:#000;padding:0.6rem 1rem;border-radius:999px;box-shadow:0 12px 40px rgba(0,240,255,0.22);gap:0.6rem}
+
+/* Button primitives */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;border-radius:999px;padding:0.8rem 1.5rem;font-weight:600;cursor:pointer;transition:all var(--transition)}
+.btn-primary{background:var(--primary);color:#0F1115;box-shadow:0 10px 30px rgba(234,206,170,0.15);border:none}
+.btn-primary:hover{transform:scale(1.05);box-shadow:0 20px 60px rgba(234,206,170,0.35)}
+.btn-secondary{background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);color:var(--ink)}
+.btn-secondary:hover{background:rgba(255,255,255,0.08);transform:scale(1.05)}
+
+/* Hero */
+.hero-row{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center}
+.hero-figure{position:relative}
+@media(min-width:1024px){.hero-row{grid-template-columns:1fr 520px;align-items:center}}
+.hero-figure::before{content:'';position:absolute;inset: -40px -10px auto auto;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle at 40% 40%, var(--primary-soft), transparent 45%);filter:blur(48px);z-index:-2}
+.hero-figure::after{content:'';position:absolute;inset:auto -10px -10px -10px;width:420px;height:420px;border-radius:50%;border:3px dashed rgba(138,43,226,0.2);z-index:-3}
+.hero-badges{display:inline-flex;align-items:center;gap:0.6rem;padding:0.45rem 0.9rem;border-radius:999px;background:var(--primary-soft);font-weight:800;color:var(--primary)}
+.hero-cta{display:flex;gap:0.75rem;flex-wrap:wrap}
+.hero-cta .btn{padding:0.8rem 1.2rem;border-radius:999px;font-weight:800}
+.hero-figure{display:flex;align-items:center;justify-content:center}
+.hero-figure .avatar-wrap{width:100%;max-width:420px;border-radius:1.25rem;overflow:hidden;border:4px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,0.5);position:relative}
+
+/* Cards grid */
+.grid-cards{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:640px){.grid-cards{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.grid-cards{grid-template-columns:repeat(3,1fr)}}
+
+/* Project card specifics */
+.project-card{display:flex;flex-direction:column;height:100%;background:var(--card-bg);border-radius:1.25rem;overflow:hidden;box-shadow:0 28px 80px rgba(0,0,0,0.4)}
+.project-card .media{aspect-ratio:16/10;width:100%;object-fit:cover}
+.project-card .body{padding:1rem;display:flex;flex-direction:column;gap:0.5rem}
+.tech-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tech-tags .badge{background:var(--bg);border:1px solid var(--border);padding:0.35rem 0.6rem;border-radius:999px;font-weight:700;color:var(--primary);font-size:0.75rem}
+.project-actions{display:flex;gap:0.6rem}
+.project-actions a{flex:1}
+
+/* Skill/feature badges */
+.badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.45rem 0.9rem;border-radius:999px;background:var(--card-bg);border:1px solid var(--border);font-weight:800;color:var(--primary);box-shadow:0 12px 36px rgba(0,0,0,0.2)}
+
+/* Stronger gradient for highlight text */
+.text-gradient{background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.text-gradient-gold{background:linear-gradient(90deg,var(--secondary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Experience timeline */
+.timeline{position:relative;padding-left:3.5rem}
+.timeline::before{content:"";position:absolute;left:1.25rem;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--primary),rgba(0,240,255,0.1));border-radius:999px}
+.timeline-item{position:relative;padding:1rem 1rem 1rem 1rem;margin-bottom:1.5rem}
+.timeline-item .marker{position:absolute;left:-0.85rem;top:1rem;width:44px;height:44px;border-radius:12px;background:var(--card-bg);display:flex;align-items:center;justify-content:center;border:2px solid var(--border);box-shadow:0 8px 22px rgba(0,0,0,0.3)}
+.timeline-item .card{margin-left:1rem}
+
+/* Forms */
+.form-input{width:100%;padding:0.85rem 1rem;border-radius:1rem;border:1px solid var(--border);background:var(--card-bg);color:var(--ink);transition:all var(--transition)}
+.form-input:focus{outline:none;border-color:var(--primary-ring);box-shadow:0 0 0 3px var(--primary-soft)}
+.form-input::placeholder{color:var(--sub);opacity:0.6}
+.form-label{display:block;margin-bottom:0.4rem;font-weight:700;color:var(--sub)}
+
+/* Footer */
+footer{padding-top:2rem;padding-bottom:2rem;color:var(--sub)}
+
+/* Responsive tweaks */
+@media(max-width:768px){
+  .glass-nav{padding:0.5rem}
+  .hero-figure{order:2}
+  .hero-row{grid-template-columns:1fr}
+  .section-container{padding:1rem}
+  section{padding:2.5rem 0}
+}
+
+/* Fine-tune header specifically for small phones (approx 425px) */
+@media(max-width:425px){
+  header.fixed{padding-top:6px;padding-left:8px;padding-right:8px}
+  .glass-nav{padding:0.35rem 0.6rem;gap:0.5rem;border-radius:1.25rem}
+  .glass-nav .brand button{font-size:1rem;padding:0.25rem 0.4rem}
+  .glass-nav .brand span{display:inline-block}
+  /* hide desktop nav and CTA to maximize space */
+  .glass-nav nav{display:none!important}
+  .glass-nav .cta{display:none!important}
+  /* enlarge hamburger touch target and make it more tappable */
+  .glass-nav > button, .glass-nav button[aria-label="Toggle Menu"]{
+    width:52px;height:52px;padding:0.45rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;color:var(--ink)
+  }
+  /* slightly reduce avatar size in hero for small phones */
+  .hero-figure .avatar-wrap{max-width:320px}
+}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Utility helpers used by components */
+.align-left{text-align:left}
