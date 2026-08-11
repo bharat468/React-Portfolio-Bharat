@@ -7,7 +7,7 @@ export default function Contact() {
 
   const contactInfo = [
     { icon: <Mail size={18} />, text: "bharatpareek256@gmail.com", label: "Email" },
-    { icon: <Phone size={18} />, text: "+91 80003953815", label: "Phone" },
+    { icon: <Phone size={18} />, text: "+91 8003953815", label: "Phone" },
     { icon: <MapPin size={18} />, text: "Sardarshahar, Rajasthan", label: "Location" }
   ];
 
